@@ -2,11 +2,13 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+var bufFrom = Buffer.from || Buffer;
+
 function buf(blob, encoding) {
   if (Buffer.isBuffer(blob)) {
     return blob;
   } else {
-    return new Buffer(blob, encoding);
+    return bufFrom(blob, encoding);
   }
 }
 
@@ -36,5 +38,5 @@ function withEncoding(fn, enc) {
   unbuf[enc] = withEncoding(unbuf, enc);
 });
 
-module.exports = buf.buf = buf;
+module.exports = buf.buf = buf.from = buf;
 buf.unbuf = buf.un = buf.str = buf.to = unbuf;

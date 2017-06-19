@@ -4,6 +4,7 @@
   "description": "Auto buffer and unbuffer values.",
   "main": "index.js",
   "scripts": {
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
